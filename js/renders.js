@@ -31,5 +31,8 @@ export const renderPosts = async () => {
         })
         listOfPosts.push(post)
     }
-    render(jobsTemplate(listOfPosts), document.body)
+    render(jobsTemplate(listOfPosts), document.getElementById("tableBody"))
+
+    //Hide "Loading" notification
+    document.getElementById("loadingText").style.display = "none"
 }
