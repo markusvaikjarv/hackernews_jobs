@@ -117,33 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/@babel/runtime/helpers/classCallCheck.js":[function(require,module,exports) {
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck;
-},{}],"node_modules/@babel/runtime/helpers/createClass.js":[function(require,module,exports) {
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-module.exports = _createClass;
-},{}],"node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
+})({"node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -2536,16 +2510,13 @@ exports.html = html;
 const svg = (strings, ...values) => new _templateResult.SVGTemplateResult(strings, values, 'svg', _defaultTemplateProcessor.defaultTemplateProcessor);
 
 exports.svg = svg;
-},{"./lib/default-template-processor.js":"node_modules/lit-html/lib/default-template-processor.js","./lib/template-result.js":"node_modules/lit-html/lib/template-result.js","./lib/directive.js":"node_modules/lit-html/lib/directive.js","./lib/dom.js":"node_modules/lit-html/lib/dom.js","./lib/part.js":"node_modules/lit-html/lib/part.js","./lib/parts.js":"node_modules/lit-html/lib/parts.js","./lib/render.js":"node_modules/lit-html/lib/render.js","./lib/template-factory.js":"node_modules/lit-html/lib/template-factory.js","./lib/template-instance.js":"node_modules/lit-html/lib/template-instance.js","./lib/template.js":"node_modules/lit-html/lib/template.js"}],"js/index.js":[function(require,module,exports) {
+},{"./lib/default-template-processor.js":"node_modules/lit-html/lib/default-template-processor.js","./lib/template-result.js":"node_modules/lit-html/lib/template-result.js","./lib/directive.js":"node_modules/lit-html/lib/directive.js","./lib/dom.js":"node_modules/lit-html/lib/dom.js","./lib/part.js":"node_modules/lit-html/lib/part.js","./lib/parts.js":"node_modules/lit-html/lib/parts.js","./lib/render.js":"node_modules/lit-html/lib/render.js","./lib/template-factory.js":"node_modules/lit-html/lib/template-factory.js","./lib/template-instance.js":"node_modules/lit-html/lib/template-instance.js","./lib/template.js":"node_modules/lit-html/lib/template.js"}],"js/templates.js":[function(require,module,exports) {
 "use strict";
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
-
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.userTemplate = exports.jobsTemplate = void 0;
 
 var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
 
@@ -2583,18 +2554,129 @@ function _templateObject() {
   return data;
 }
 
-// top 15 jobs https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty
-//get item https://hacker-news.firebaseio.com/v0/item/19471354.json?print=pretty
-// get user https://hacker-news.firebaseio.com/v0/user/username.json?print=pretty
 var jobsTemplate = function jobsTemplate(posts) {
   return (0, _litHtml.html)(_templateObject(), posts.map(function (post) {
     return (0, _litHtml.html)(_templateObject2(), post.url, post.title, post.author, post.author);
   }));
 };
 
+exports.jobsTemplate = jobsTemplate;
+
 var userTemplate = function userTemplate(user) {
   return (0, _litHtml.html)(_templateObject3(), user.id, user.karma);
 };
+
+exports.userTemplate = userTemplate;
+},{"@babel/runtime/helpers/taggedTemplateLiteral":"node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","lit-html":"node_modules/lit-html/lit-html.js"}],"node_modules/@babel/runtime/helpers/classCallCheck.js":[function(require,module,exports) {
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
+},{}],"node_modules/@babel/runtime/helpers/createClass.js":[function(require,module,exports) {
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
+},{}],"js/classes.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.User = exports.Post = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Post =
+/*#__PURE__*/
+function () {
+  function Post(_ref) {
+    var id = _ref.id,
+        title = _ref.title,
+        url = _ref.url,
+        author = _ref.author;
+    (0, _classCallCheck2.default)(this, Post);
+    this.id = id;
+    this.title = title;
+    this.url = url;
+    this.author = author;
+  } //toJSON is automatically called on JSON.stringify(instanceof Post)
+
+
+  (0, _createClass2.default)(Post, [{
+    key: "toJSON",
+    value: function toJSON() {
+      return {
+        id: this.id,
+        title: this.title,
+        url: this.url,
+        author: this.author
+      };
+    }
+  }]);
+  return Post;
+}();
+
+exports.Post = Post;
+
+var User =
+/*#__PURE__*/
+function () {
+  function User(_ref2) {
+    var id = _ref2.id,
+        karma = _ref2.karma;
+    (0, _classCallCheck2.default)(this, User);
+    this.id = id;
+    this.karma = karma;
+  } //toJSON is automatically called on JSON.stringify(instanceof User)
+
+
+  (0, _createClass2.default)(User, [{
+    key: "toJSON",
+    value: function toJSON() {
+      return {
+        id: this.id,
+        karma: this.karma
+      };
+    }
+  }]);
+  return User;
+}();
+
+exports.User = User;
+},{"@babel/runtime/helpers/classCallCheck":"node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"node_modules/@babel/runtime/helpers/createClass.js"}],"js/requests.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.requestUser = exports.requestPost = exports.requestJobs = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var requestJobs =
 /*#__PURE__*/
@@ -2632,6 +2714,8 @@ function () {
   };
 }();
 
+exports.requestJobs = requestJobs;
+
 var requestPost =
 /*#__PURE__*/
 function () {
@@ -2667,6 +2751,8 @@ function () {
     return _ref2.apply(this, arguments);
   };
 }();
+
+exports.requestPost = requestPost;
 
 var requestUser =
 /*#__PURE__*/
@@ -2704,86 +2790,111 @@ function () {
   };
 }();
 
+exports.requestUser = requestUser;
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js"}],"js/renders.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.renderPosts = exports.renderUser = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _templates = require("./templates");
+
+var _litHtml = require("lit-html");
+
+var _classes = require("./classes");
+
+var _requests = require("./requests");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var renderUser =
 /*#__PURE__*/
 function () {
-  var _ref4 = (0, _asyncToGenerator2.default)(
+  var _ref = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
-  _regenerator.default.mark(function _callee4(userId) {
+  _regenerator.default.mark(function _callee(userId) {
     var response, user;
-    return _regenerator.default.wrap(function _callee4$(_context4) {
+    return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
-        switch (_context4.prev = _context4.next) {
+        switch (_context.prev = _context.next) {
           case 0:
             if (!userId) {
-              _context4.next = 7;
+              _context.next = 7;
               break;
             }
 
-            _context4.next = 3;
-            return requestUser(userId);
+            _context.next = 3;
+            return (0, _requests.requestUser)(userId);
 
           case 3:
-            response = _context4.sent;
-            user = new User({
+            response = _context.sent;
+            user = new _classes.User({
               id: response.id,
               karma: response.karma
             });
             console.log("rendering user ".concat(user.id));
-            (0, _litHtml.render)(userTemplate(user), document.body);
+            (0, _litHtml.render)((0, _templates.userTemplate)(user), document.body);
 
           case 7:
           case "end":
-            return _context4.stop();
+            return _context.stop();
         }
       }
-    }, _callee4);
+    }, _callee);
   }));
 
-  return function renderUser(_x3) {
-    return _ref4.apply(this, arguments);
+  return function renderUser(_x) {
+    return _ref.apply(this, arguments);
   };
 }();
+
+exports.renderUser = renderUser;
 
 var renderPosts =
 /*#__PURE__*/
 function () {
-  var _ref5 = (0, _asyncToGenerator2.default)(
+  var _ref2 = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
-  _regenerator.default.mark(function _callee5() {
+  _regenerator.default.mark(function _callee2() {
     var listOfPosts, response, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, postId, postInfo, post;
 
-    return _regenerator.default.wrap(function _callee5$(_context5) {
+    return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
-        switch (_context5.prev = _context5.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
             listOfPosts = [];
             console.log("rendering posts");
-            _context5.next = 4;
-            return requestJobs();
+            _context2.next = 4;
+            return (0, _requests.requestJobs)();
 
           case 4:
-            response = _context5.sent;
+            response = _context2.sent;
             // loop to create an array of Posts with {id, title, url}
             _iteratorNormalCompletion = true;
             _didIteratorError = false;
             _iteratorError = undefined;
-            _context5.prev = 8;
+            _context2.prev = 8;
             _iterator = response[Symbol.iterator]();
 
           case 10:
             if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-              _context5.next = 20;
+              _context2.next = 20;
               break;
             }
 
             postId = _step.value;
-            _context5.next = 14;
-            return requestPost(postId);
+            _context2.next = 14;
+            return (0, _requests.requestPost)(postId);
 
           case 14:
-            postInfo = _context5.sent;
-            post = new Post({
+            postInfo = _context2.sent;
+            post = new _classes.Post({
               id: postInfo.id,
               title: postInfo.title,
               url: postInfo.url,
@@ -2793,260 +2904,212 @@ function () {
 
           case 17:
             _iteratorNormalCompletion = true;
-            _context5.next = 10;
+            _context2.next = 10;
             break;
 
           case 20:
-            _context5.next = 26;
+            _context2.next = 26;
             break;
 
           case 22:
-            _context5.prev = 22;
-            _context5.t0 = _context5["catch"](8);
+            _context2.prev = 22;
+            _context2.t0 = _context2["catch"](8);
             _didIteratorError = true;
-            _iteratorError = _context5.t0;
+            _iteratorError = _context2.t0;
 
           case 26:
-            _context5.prev = 26;
-            _context5.prev = 27;
+            _context2.prev = 26;
+            _context2.prev = 27;
 
             if (!_iteratorNormalCompletion && _iterator.return != null) {
               _iterator.return();
             }
 
           case 29:
-            _context5.prev = 29;
+            _context2.prev = 29;
 
             if (!_didIteratorError) {
-              _context5.next = 32;
+              _context2.next = 32;
               break;
             }
 
             throw _iteratorError;
 
           case 32:
-            return _context5.finish(29);
+            return _context2.finish(29);
 
           case 33:
-            return _context5.finish(26);
+            return _context2.finish(26);
 
           case 34:
-            (0, _litHtml.render)(jobsTemplate(listOfPosts), document.body);
+            (0, _litHtml.render)((0, _templates.jobsTemplate)(listOfPosts), document.body);
 
           case 35:
           case "end":
-            return _context5.stop();
+            return _context2.stop();
         }
       }
-    }, _callee5, null, [[8, 22, 26, 34], [27,, 29, 33]]);
+    }, _callee2, null, [[8, 22, 26, 34], [27,, 29, 33]]);
   }));
 
   return function renderPosts() {
-    return _ref5.apply(this, arguments);
+    return _ref2.apply(this, arguments);
   };
 }();
 
-var User =
-/*#__PURE__*/
-function () {
-  function User(_ref6) {
-    var id = _ref6.id,
-        karma = _ref6.karma;
-    (0, _classCallCheck2.default)(this, User);
-    this.id = id;
-    this.karma = karma;
-  } //toJSON is automatically called on JSON.stringify(instanceof User)
+exports.renderPosts = renderPosts;
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","./templates":"js/templates.js","lit-html":"node_modules/lit-html/lit-html.js","./classes":"js/classes.js","./requests":"js/requests.js"}],"js/router.js":[function(require,module,exports) {
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.instantiateRouter = instantiateRouter;
 
-  (0, _createClass2.default)(User, [{
-    key: "toJSON",
-    value: function toJSON() {
-      return {
-        id: this.id,
-        karma: this.karma
-      };
-    }
-  }]);
-  return User;
-}();
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-var Post =
-/*#__PURE__*/
-function () {
-  function Post(_ref7) {
-    var id = _ref7.id,
-        title = _ref7.title,
-        url = _ref7.url,
-        author = _ref7.author;
-    (0, _classCallCheck2.default)(this, Post);
-    this.id = id;
-    this.title = title;
-    this.url = url;
-    this.author = author;
-  } //toJSON is automatically called on JSON.stringify(instanceof Post)
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  (0, _createClass2.default)(Post, [{
-    key: "toJSON",
-    value: function toJSON() {
-      return {
-        id: this.id,
-        title: this.title,
-        url: this.url,
-        author: this.author
-      };
-    }
-  }]);
-  return Post;
-}(); // match routes with paths
-// grab recipe by id param for edit route
+function instantiateRouter(routes) {
+  // on popstate get parameters from url and pass them to route
+  window.onpopstate =
+  /*#__PURE__*/
+  (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee() {
+    var url;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            url = new URL(window.location.pathname + window.location.search, window.location.origin);
 
+            if (!routes[window.location.pathname]) {
+              _context.next = 6;
+              break;
+            }
 
+            _context.next = 4;
+            return routes[window.location.pathname](url.searchParams);
+
+          case 4:
+            _context.next = 7;
+            break;
+
+          case 6:
+            routes['/error']();
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  })); // on pop state get params from url and pass to route
+  // if no such route, error
+  // add route to browser history
+
+  /*
+  let onNavItemClick = async pathName => {
+      const url = new URL(pathName, window.location.origin)
+      const params = url.searchParams
+      if (routes[url.pathname]) {
+          window.history.pushState({}, pathName, window.location.origin + pathName)
+          await routes[url.pathname](params)
+      } else {
+          window.history.pushState({}, '404', window.location.origin + '/404')
+          routes['/error']()
+      }
+  }
+  */
+  // on page load/reload, set appropriate route
+  //IIFE to set up router
+
+  (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee2() {
+    var url;
+    return _regenerator.default.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            url = new URL(window.location.pathname + window.location.search, window.location.origin);
+
+            if (!routes[window.location.pathname]) {
+              _context2.next = 6;
+              break;
+            }
+
+            _context2.next = 4;
+            return routes[window.location.pathname](url.searchParams);
+
+          case 4:
+            _context2.next = 7;
+            break;
+
+          case 6:
+            routes['/error']();
+
+          case 7:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }))();
+}
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js"}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _renders = require("./renders");
+
+var _router = require("./router");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// top 15 jobs https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty
+//get item https://hacker-news.firebaseio.com/v0/item/19471354.json?print=pretty
+// get user https://hacker-news.firebaseio.com/v0/user/username.json?print=pretty
+// match routes with render functions
 var routes = {
-  '/': renderPosts,
+  '/': _renders.renderPosts,
   '/user': function () {
     var _user = (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee6(params) {
+    _regenerator.default.mark(function _callee(params) {
       var userId;
-      return _regenerator.default.wrap(function _callee6$(_context6) {
+      return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
-          switch (_context6.prev = _context6.next) {
+          switch (_context.prev = _context.next) {
             case 0:
               userId = params.get('username');
-              renderUser(userId);
+              (0, _renders.renderUser)(userId);
 
             case 2:
             case "end":
-              return _context6.stop();
+              return _context.stop();
           }
         }
-      }, _callee6);
+      }, _callee);
     }));
 
-    function user(_x4) {
+    function user(_x) {
       return _user.apply(this, arguments);
     }
 
     return user;
-  }() // on popstate get parameters from url and pass them to route
+  }() //todo: /error route
+  //starts the router with specified routes
 
 };
-window.onpopstate =
-/*#__PURE__*/
-(0, _asyncToGenerator2.default)(
-/*#__PURE__*/
-_regenerator.default.mark(function _callee7() {
-  var url;
-  return _regenerator.default.wrap(function _callee7$(_context7) {
-    while (1) {
-      switch (_context7.prev = _context7.next) {
-        case 0:
-          url = new URL(window.location.pathname + window.location.search, window.location.origin);
-
-          if (!routes[window.location.pathname]) {
-            _context7.next = 6;
-            break;
-          }
-
-          _context7.next = 4;
-          return routes[window.location.pathname](url.searchParams);
-
-        case 4:
-          _context7.next = 7;
-          break;
-
-        case 6:
-          routes['/error']();
-
-        case 7:
-        case "end":
-          return _context7.stop();
-      }
-    }
-  }, _callee7);
-})); // on pop state get params from url and pass to route
-// if no such route, error
-// add route to browser history
-
-var onNavItemClick =
-/*#__PURE__*/
-function () {
-  var _ref9 = (0, _asyncToGenerator2.default)(
-  /*#__PURE__*/
-  _regenerator.default.mark(function _callee8(pathName) {
-    var url, params;
-    return _regenerator.default.wrap(function _callee8$(_context8) {
-      while (1) {
-        switch (_context8.prev = _context8.next) {
-          case 0:
-            url = new URL(pathName, window.location.origin);
-            params = url.searchParams;
-
-            if (!routes[url.pathname]) {
-              _context8.next = 8;
-              break;
-            }
-
-            window.history.pushState({}, pathName, window.location.origin + pathName);
-            _context8.next = 6;
-            return routes[url.pathname](params);
-
-          case 6:
-            _context8.next = 10;
-            break;
-
-          case 8:
-            window.history.pushState({}, '404', window.location.origin + '/404');
-            routes['/error']();
-
-          case 10:
-          case "end":
-            return _context8.stop();
-        }
-      }
-    }, _callee8);
-  }));
-
-  return function onNavItemClick(_x5) {
-    return _ref9.apply(this, arguments);
-  };
-}() // on page load/reload, set appropriate route
-;
-
-(0, _asyncToGenerator2.default)(
-/*#__PURE__*/
-_regenerator.default.mark(function _callee9() {
-  var url;
-  return _regenerator.default.wrap(function _callee9$(_context9) {
-    while (1) {
-      switch (_context9.prev = _context9.next) {
-        case 0:
-          url = new URL(window.location.pathname + window.location.search, window.location.origin);
-
-          if (!routes[window.location.pathname]) {
-            _context9.next = 6;
-            break;
-          }
-
-          _context9.next = 4;
-          return routes[window.location.pathname](url.searchParams);
-
-        case 4:
-          _context9.next = 7;
-          break;
-
-        case 6:
-          routes['/error']();
-
-        case 7:
-        case "end":
-          return _context9.stop();
-      }
-    }
-  }, _callee9);
-}))();
-},{"@babel/runtime/helpers/classCallCheck":"node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","@babel/runtime/helpers/taggedTemplateLiteral":"node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js","lit-html":"node_modules/lit-html/lit-html.js"}],"../../../../usr/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _router.instantiateRouter)(routes);
+},{"@babel/runtime/regenerator":"node_modules/@babel/runtime/regenerator/index.js","@babel/runtime/helpers/asyncToGenerator":"node_modules/@babel/runtime/helpers/asyncToGenerator.js","./renders":"js/renders.js","./router":"js/router.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -3074,7 +3137,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43171" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -3249,5 +3312,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../usr/lib/node_modules/parcel/src/builtins/hmr-runtime.js","js/index.js"], null)
+},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","js/index.js"], null)
 //# sourceMappingURL=/js.00a46daa.js.map
